@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMakanansTable extends Migration
+class CreateBahanBakusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateMakanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('makanans', function (Blueprint $table) {
+        Schema::create('bahan_bakus', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('bahanBaku_id')->unsigned();
-            $table->foreign('bahanBaku_id')->references('id')->on('bahan_bakus');
             $table->string('name');
-            $table->text('recipe');
-            $table->integer('price');
+            $table->string('supplier');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateMakanansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('makanans');
+        Schema::dropIfExists('bahan_bakus');
     }
 }

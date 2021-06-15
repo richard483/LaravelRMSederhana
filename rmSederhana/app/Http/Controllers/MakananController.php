@@ -4,19 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Makanan;
+use App\Models\BahanBaku;
 
 class MakananController extends Controller
 {
     //
     public function index(){
-        return view('welcome');
+        $bahan_baku = BahanBaku::all();
+        return view('welcome', compact('bahan_baku'));
     }
 
     public function store(Request $request){
         Makanan::create([
             'name' => $request -> food_name,
             'recipe' => $request -> food_rec,
-            'price' => $request -> food_price
+            'price' => $request -> food_price,
+            'bahanBaku_id'=>$request->bahanBaku_id
         ]);
         return redirect('/');
     }
@@ -33,7 +36,8 @@ class MakananController extends Controller
         Makanan::findOrFail($id)->update([
             'name' => $request->food_name,
             'recipe' => $request->food_rec,
-            'price' => $request->food_price
+            'price' => $request->food_price,
+
         ]);
         return redirect('/main');
     }

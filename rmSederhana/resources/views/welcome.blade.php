@@ -34,8 +34,18 @@
                   <label for="exampleInputPassword1" class="form-label">Price</label>
                   <input name="food_price", class="form-control" type="number">
                 </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Bahan baku</label>
+                  
+                  <select name="bahanBaku_id" class="form-control">
+                    @foreach ($bahan_baku as $bahan)
+                    <option value="{{$bahan->id}}">{{$bahan->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="/main/" class="btn btn-primary">Go to list</a>
+                <a href="/main/bahan_baku/" class="btn btn-primary">Go to bahan baku</a>
               </form>
         </div>
     </body>
