@@ -30,9 +30,9 @@
                       <form action="{{route('bahan_baku.delete', $bahan->id)}}" method ="POST">
                         @csrf 
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete
+                        <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
-                      @endif</button>
+                      @endif
                       {{-- opsi  hanya tersedia kalau bahan baku sudah tidak memiliki makanan lagi --}}
             </td>
           </tr>

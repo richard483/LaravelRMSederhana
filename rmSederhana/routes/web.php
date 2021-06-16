@@ -28,3 +28,7 @@ Route::get('/main/bahan_baku/{id}', [BahanBakuController::class, 'info'])->name(
 Route::delete('/main/bahan_baku/{id}', [BahanBakuController::class, 'delete'])->name('bahan_baku.delete');
 Route::get('/main/bahan_baku/edit/{id}', [BahanBakuController::class, 'edit']) -> name('bahan_baku.edit');
 Route::patch('/main/bahan_baku/{id}', [BahanBakuController::class, 'update'])->name('bahan_baku.update');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
